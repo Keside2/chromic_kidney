@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--MY BOOTSRAP CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap/css/bootstrap.css') }}">
+    <!-- MY PERSONAL CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/account.css') }}">
+</head>
+
+<body>
+
+  
+
+    <div>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-lights">
+                <a class="navbar-brand" href="#"><i class="fa fa-user-circle won" aria-hidden="true"></i></a>
+                <h3>Hello <span id=user></span></h3>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse bon" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+                    <a href="#"><i class="fa fa-bell pow" aria-hidden="true"></i></a>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+            </nav>
+        </div>
+
+        <div class="ckd">
+            <h4><b>Chronic Kidney Disease Prediction</b></h4>
+        </div>
+
+        <div class="top">
+            <form action="/predict" method="post">
+                <div class="form-row">
+                    <div class="col-12 col-md-4 aon">
+                        <label for="formGroupExampleInput">Age</label>
+                        <input type="number" class="form-control" id="formGroupExampleInput"
+                          placeholder="Age" name ='age' required>
+                    </div>
+                    <div class="col-12 col-md-4 aon">
+                        <label for="formGroupExampleInput">Specific Gravity</label>
+                        <input type="number" class="form-control" id= 'sg' i step="0.01" name="sg" placeholder="Specific Gravity" required>
+                    </div>
+                    <div class="col-12 col-md-4 aon">
+                        <label for="formGroupExampleInput">Albumin</label>
+                        <input type="number" class="form-control" id="formGroupExampleInput" name="al" placeholder="Albumin" required>
+                    </div>
+
+
+                </div>
+                <div class="form-row">
+                    <div class="col-12 col-md-4 aon">
+                        <label for="blood">Red Blood Cell</label>
+                        <select name="blood" id="blood" name="rbc">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-4 aon">
+                        <label for="formGroupExampleInput">Serum Creatinine</label>
+                        <input type="number" class="form-control" id="formGroupExampleInput" name="sc" placeholder="Serum Creatinine" required>
+                    </div>
+                    <div class="col-12 col-md-4 aon">
+                        <label for="formGroupExampleInput">Hemoglobin</label>
+                        <input type="number" class="form-control" id="formGroupExampleInput" name="hemo" placeholder="Hemoglobin" required>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="col-12 col-md-4 aon">
+                        <label for="exampleInputEmail1">Blood Pressure(mmHg)</label>
+                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           placeholder="Blood Pressure(mmHg)" name="bp" required>
+                    </div>
+                    <div class="col-12 col-md-4 aon">
+                        <label for="formGroupExampleInput">Packed Cell Volume</label>
+                        <input type="number" class="form-control" id="formGroupExampleInput" name="pcv" placeholder="Packed Cell Volume" required>
+                    </div>
+                    <div class="col-12 col-md-4 aon">
+                        <label for="htn">Hypertension</label>
+                        <select name="htn" id="pus">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    
+                    <div class="col-12 col-md-4 aon">
+                        <label for="pus">Pus Cell</label>
+                        <select name="pc" id="pus">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-4 aon">
+                        <label for="pus">Pus Cell Clumps</label>
+                        <select name="pcc" id="pus">
+                            <option value="Present">Normal</option>
+                            <option value="Not Present">Not Present</option>
+                            <option value="Present">Abnormal</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+
+                <div>
+
+                    <div class="container" style="margin: 30px 0;">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <!-- remain empty -->
+                            </div>
+                            <div class="col-6 col-md-2">
+                                <button type="submit" class="btn btn-primary sop">Predict</button>
+                            </div>
+                            <div class="col-6 col-md-2">
+                                <a href="/"><button type="button" class="btn btn-primary rop">Back to Login</button></a>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+
+            {% if prediction_text %}
+            <div class="prediction">
+                <p>{{ prediction_text }}</p>
+            </div>
+            {% endif %}
+
+
+
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- BOOTSTRAP JS -->
+    <script src="{{ url_for('static', filename='bootstrap/bootstrap/js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/bootstrap/js/bootstrap.js') }}"></script>
+    <!-- Place your kit's code here -->
+    <script src="https://kit.fontawesome.com/ce17c5a432.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/account.js') }}"></script>
+</body>
+
+</html>
+</body>
+
+</html>

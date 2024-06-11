@@ -1,0 +1,15 @@
+.mains {
+    background-color: #106a67;
+  }
+  .mains2{
+    background-color: #F7F7F7;
+  }
+  .bon {
+    width: 100%;
+    background-color: #158A7D;
+    border: 1px solid #F7F7F7;
+}
+.bon:hover{
+    background-color: black;
+    border: 1px solid #F7F7F7;
+}
