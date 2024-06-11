@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # Loading and preprocessing the dataset
 df = pd.read_csv('./data/kidney_disease.csv')
-columns_to_retain = [ 'age','sg', 'al', 'rbc', 'sc', 'hemo','bp', 'pcv', 'htn', 'pcc', 'pc', 'classification']
+columns_to_retain = [ 'age','sg', 'al', 'rbc', 'sc', 'hemo','bp', 'pcv', 'htn', 'pcc', 'pc', 'appet, 'classification']
 df = df.drop([col for col in df.columns if col not in columns_to_retain], axis=1)
 df = df.dropna(axis=0)
 
