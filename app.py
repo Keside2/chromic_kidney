@@ -96,9 +96,9 @@ def predict():
     
     pred, proba = predict_ckd(feature_values)
     if pred == 0:
-        return render_template('account.html', prediction_text='The patient has CKD with probability {:.2f}%'.format(proba * 100))
+        return render_template('account.html', prediction_text='The patient has CKD (Chromic Kidney Disease)')
     else:
-        return render_template('account.html', prediction_text='The patient does not have CKD with probability {:.2f}%'.format(proba * 100))
+        return render_template('account.html', prediction_text='The patient does not have CKD (Chromic Kidney Disease)')
 
 if __name__ == '__main__':
     app.run(debug=True)
