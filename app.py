@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # Loading and preprocessing the dataset
 df = pd.read_csv('./data/kidney_disease.csv')
-columns_to_retain = ['age','sg', 'al', 'rbc','sc', 'hemo','bp', 'pcv', 'htn','pc','pcc', 'classification']
+columns_to_retain = ['sg', 'al', 'sc', 'hemo', 'pcv', 'htn', 'classification']
 df = df.drop([col for col in df.columns if col not in columns_to_retain], axis=1)
 df = df.dropna(axis=0)
 
@@ -96,9 +96,9 @@ def predict():
     
     pred, proba = predict_ckd(feature_values)
     if pred == 0:
-        return render_template('account.html', prediction_text='The patient has Kidney Disease')
+        return render_template('account.html', prediction_text='The patient has Kidney Disease' )
     else:
-        return render_template('account.html', prediction_text='The patient does not have Kidney Disease')
+        return render_template('account.html', prediction_text='The patient does not have  Kidney Disease' )
 
 if __name__ == '__main__':
     app.run(debug=True)
